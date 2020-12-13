@@ -183,7 +183,7 @@ function insertItem(arr, item, index) {
   for (let i = 0; i < arr.length; i++) {
       if(i===index){
         arr1.push(item)
-      } else 
+      } else
     arr1.push(arr[i])
 
   }
@@ -241,7 +241,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  let str = '';  
+  let str = '';
     arr.map((el) => {
     str+=el.toString()+'\n'})
     return str;
@@ -420,7 +420,7 @@ function getFalsyValuesCount(arr) {
   arr.forEach(function (el) {
     if (Boolean(el) === false) {
       count++
-    } 
+    }
   })
 
   return count;
@@ -492,13 +492,13 @@ return arr.join(',')
  *    ]
  */
 function sortCitiesArray(arr) {
-  return = arr.sort((el,el1)=>{
+  return arr.sort ((el,el1) => {
     if(el.country.charCodeAt(0)<el1.country.charCodeAt(0)) {
       return -1;
     }
     if(el.country.charCodeAt(0)>el1.country.charCodeAt(0)) {
       return 1;
-    } 
+    }
     if(el.country.charCodeAt(0)===el1.country.charCodeAt(0)) {
       if(el.city.charCodeAt(0)<el1.city.charCodeAt(0)) {
         return -1;
@@ -553,7 +553,11 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  
+  let arr1 = [];
+  for (let i = start; i<=end; i++) {
+    arr1.push(i)
+  }
+  return arr1;
 }
 
 /**
@@ -567,8 +571,10 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  let arr1 = [];
+  arr.map((el)=>!arr1.includes(el)?arr1.push(el):el)
+  return arr1;
 }
 
 /**
@@ -619,8 +625,8 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.map(childrenSelector).flat();
 }
 
 
@@ -636,8 +642,15 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  let result = null;
+  if(indexes.length === 1) {
+    result = arr[indexes[0]]
+  } else {
+    arr = getElementByIndexes(arr, indexes[0])
+    indexes.shift()
+  }
+  return result;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 
@@ -659,8 +672,19 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  let arr1 = null
+  let arr2 = null
+  let length = arr.length;
+  if(length%2===0) {
+    arr1 = arr.slice(0,length/2)
+    arr2 = arr.slice(length/2,length)
+  } else {
+    arr1 = arr.slice(0,(length-1)/2)
+    arr2 = arr.slice((length+1)/2,length)
+    arr2.push(arr[(length-1)/2])
+  }
+  return arr2.concat(arr1);
 }
 
 
