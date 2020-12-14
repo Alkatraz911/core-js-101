@@ -1,3 +1,4 @@
+
 /* *******************************************************************************************
  *                                                                                           *
  * Plese read the following tutorial before implementing tasks:                              *
@@ -18,8 +19,8 @@
  *   'aa',''    => 'aa'
  *   '',  'bb'  => 'bb'
  */
-function concatenateStrings(value1, value2 ) {
-  return value1+value2;
+function concatenateStrings(value1, value2) {
+  return value1 + value2;
 }
 
 
@@ -52,7 +53,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -66,8 +67,8 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  let arr = 'Hello, John Doe!'.split(' ')
-  let str = `${arr[1]} ${arr[2].slice(0,arr[2].length-1)}`
+  const arr = value.split(' ');
+  const str = `${arr[1]} ${arr[2].slice(0, arr[2].length - 1)}`;
   return str;
 }
 
@@ -83,7 +84,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value.slice(0,1);
+  return value.slice(0, 1);
 }
 
 /**
@@ -98,7 +99,7 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-  return value.replace(/\s/g,'')
+  return value.replace(/\s/g, ' ').trim();
 }
 
 /**
@@ -113,9 +114,9 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-  let str = "";
-  for (let i = 0; i<count; i++) {
-    str +=value
+  let str = '';
+  for (let i = 0; i < count; i += 1) {
+    str += value;
   }
   return str;
 }
@@ -133,7 +134,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  return str.replace(value,'')
+  return str.replace(value, '');
 }
 
 /**
@@ -148,7 +149,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-  return str.replace('<','').replace('>','')
+  return str.replace('<', '').replace('>', '');
 }
 
 
@@ -182,7 +183,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-  return str.split(';')
+  return str.split(';');
 }
 
 /**
@@ -208,8 +209,8 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-  return 
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');
 }
 
 
@@ -247,7 +248,7 @@ function encodeToRot13(/* str */) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof(value) === 'string'
+  return typeof (value) === 'string';
 }
 
 
@@ -275,7 +276,7 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(value) {
+function getCardId(/* value */) {
   throw new Error('Not implemented');
 }
 
